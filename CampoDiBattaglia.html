@@ -135,14 +135,14 @@ h4{
     font-size: 12vw;
     color: green;
     position: absolute;
-    bottom: 33vh;
+    bottom: 25vh;
 }
 #S2{
     font-size: 12vw;
     color: purple;
     position: absolute;
     right: 0vw;
-    bottom: 33vh;
+    bottom: 25vh;
 }
 .Centratore
 {
@@ -1186,10 +1186,9 @@ function Gioco(Protagonista,ShotgunEquipaggiato,AssaltoEquipaggiato,CecchinoEqui
     let colpito;
     let risparo = true;
     let EccoloCheArriva;
-    let Fattibile = true;
     let Dotazione = [ShotgunEquipaggiato,AssaltoEquipaggiato,CecchinoEquipaggiato];
     AggiornaMirino(ArmaPresa,DatiDiPosizione.distanza);
-    BottoneMischia.addEventListener('click', (event) => {event.stopPropagation(); Fattibile = false; BottoneMischia.style.opacity = "1"; setTimeout(() => {BottoneMischia.style.opacity = "0.5"; Fattibile = true;},100); if(!DatiDiPosizione.InPausa){
+    BottoneMischia.addEventListener('pointerdown', (event) => {event.stopPropagation(); BottoneMischia.style.opacity = "1"; setTimeout(() => {BottoneMischia.style.opacity = "0.5"; Fattibile = true;},100); if(!DatiDiPosizione.InPausa){
             if(ArmaPresa != MischiaEquipaggiata && !InCarica)
             {
             Colpo = CambioArma(MischiaEquipaggiata,Spara,gap,risparo);
@@ -1200,7 +1199,7 @@ function Gioco(Protagonista,ShotgunEquipaggiato,AssaltoEquipaggiato,CecchinoEqui
                     AggiornaMirino(ArmaPresa,DatiDiPosizione.distanza);
                 }
             }}});
-    BottoneShotgun.addEventListener('click',(event) => {event.stopPropagation(); Fattibile = false; BottoneShotgun.style.opacity = "1"; setTimeout(() => {BottoneShotgun.style.opacity = "0.5"; Fattibile = true;},100);  if(!DatiDiPosizione.InPausa){
+    BottoneShotgun.addEventListener(pointerdown',(event) => {event.stopPropagation(); BottoneShotgun.style.opacity = "1"; setTimeout(() => {BottoneShotgun.style.opacity = "0.5";},100);  if(!DatiDiPosizione.InPausa){
                             if(ArmaPresa != ShotgunEquipaggiato && !InCarica)
                 {
             Colpo = CambioArma(ShotgunEquipaggiato,Spara,gap,risparo);
@@ -1211,7 +1210,7 @@ function Gioco(Protagonista,ShotgunEquipaggiato,AssaltoEquipaggiato,CecchinoEqui
                     AggiornaMirino(ArmaPresa,DatiDiPosizione.distanza);
                 }
             }}});
-    BottoneAssalto.addEventListener('click',(event) => {event.stopPropagation(); Fattibile = false; BottoneAssalto.style.opacity = "1"; setTimeout(() => {BottoneAssalto.style.opacity = "0.5"; Fattibile = true;},100);  if(!DatiDiPosizione.InPausa){
+    BottoneAssalto.addEventListener('pointerdown',(event) => {event.stopPropagation(); BottoneAssalto.style.opacity = "1"; setTimeout(() => {BottoneAssalto.style.opacity = "0.5";},100);  if(!DatiDiPosizione.InPausa){
                 if(ArmaPresa != AssaltoEquipaggiato && !InCarica)
                 {
             Colpo = CambioArma(AssaltoEquipaggiato,Spara,gap,risparo);
@@ -1222,7 +1221,7 @@ function Gioco(Protagonista,ShotgunEquipaggiato,AssaltoEquipaggiato,CecchinoEqui
                     AggiornaMirino(ArmaPresa,DatiDiPosizione.distanza);
                 }
             }}});
-    BottoneCecchino.addEventListener('click',(event) => {event.stopPropagation(); Fattibile = false; BottoneCecchino.style.opacity = "1"; setTimeout(() => {BottoneCecchino.style.opacity = "0.5"; Fattibile = true;},100);  if(!DatiDiPosizione.InPausa){
+    BottoneCecchino.addEventListener('pointerdown',(event) => {event.stopPropagation(); BottoneCecchino.style.opacity = "1"; setTimeout(() => {BottoneCecchino.style.opacity = "0.5";},100);  if(!DatiDiPosizione.InPausa){
                 if(ArmaPresa != CecchinoEquipaggiato && !InCarica)
                 {
             Colpo = CambioArma(CecchinoEquipaggiato,Spara,gap,risparo);
@@ -1233,14 +1232,14 @@ function Gioco(Protagonista,ShotgunEquipaggiato,AssaltoEquipaggiato,CecchinoEqui
                     AggiornaMirino(ArmaPresa,DatiDiPosizione.distanza);
                 }
             }}});
-    BottoneRicarica.addEventListener('click',(event) => {event.stopPropagation(); Fattibile = false; BottoneRicarica.style.opacity = "1"; setTimeout(() => {BottoneRicarica.style.opacity = "0.5"; Fattibile = true;},100);  if(!DatiDiPosizione.InPausa){
+    BottoneRicarica.addEventListener('pointerdown',(event) => {event.stopPropagation(); BottoneRicarica.style.opacity = "1"; setTimeout(() => {BottoneRicarica.style.opacity = "0.5";},100);  if(!DatiDiPosizione.InPausa){
             if(ArmaPresa != MischiaEquipaggiata && !InCarica)
             {   
                 InCarica = true;
                 ArmaPresa.Ricarica();
                 setTimeout(() => {InCarica = false;},3000);
             }}});
-    BottoneSchiva.addEventListener('click',(event) => {event.stopPropagation(); BottoneSchiva.style.opacity = "1"; setTimeout(() => {BottoneSchiva.style.opacity = "0.5"; Fattibile = true;},100); if(!DatiDiPosizione.InPausa){
+    BottoneSchiva.addEventListener('pointerdown',(event) => {event.stopPropagation(); BottoneSchiva.style.opacity = "1"; setTimeout(() => {BottoneSchiva.style.opacity = "0.5";},100); if(!DatiDiPosizione.InPausa){
                 if(!DatiDiPosizione.Schivando && PuoSchivare)
                 {  
                    DatiDiPosizione.Schivando = true;
@@ -1249,7 +1248,7 @@ function Gioco(Protagonista,ShotgunEquipaggiato,AssaltoEquipaggiato,CecchinoEqui
                    setTimeout(() => {DatiDiPosizione.Schivando = false;},400);
                    setTimeout(() => {PuoSchivare = true;},1000);
                 }}});
-    BottoneSpara.addEventListener('touchstart',(event) => {if(Fattibile){event.stopPropagation(); BottoneSpara.style.opacity = "1"; if(!DatiDiPosizione.InPausa){
+    BottoneSpara.addEventListener('pointerdown',(event) => {event.stopPropagation(); BottoneSpara.style.opacity = "1"; if(!DatiDiPosizione.InPausa){
             if(!Colpo && !InCarica && risparo)
             {   
                 muny = ArmaPresa.munizioni > 0;
@@ -1299,8 +1298,8 @@ function Gioco(Protagonista,ShotgunEquipaggiato,AssaltoEquipaggiato,CecchinoEqui
                     Spara = undefined;
                 }
             }
-        }}});
-    BottoneMuoviSu.addEventListener('touchstart',(event) => {if(Fattibile){event.stopPropagation(); BottoneMuoviSu.style.opacity = "1"; if(!DatiDiPosizione.InPausa){
+        }});
+    BottoneMuoviSu.addEventListener('pointerdown',(event) => {event.stopPropagation(); BottoneMuoviSu.style.opacity = "1"; if(!DatiDiPosizione.InPausa){
                 if(!DatiDiPosizione.Corri)
                 {
                     ArmaInCanna.classList.add('shake');
@@ -1315,8 +1314,8 @@ function Gioco(Protagonista,ShotgunEquipaggiato,AssaltoEquipaggiato,CecchinoEqui
             {
                 DatiDiPosizione.Corri = false;
                 ArmaInCanna.classList.remove('shake');
-            }}});
-    BottoneMuoviGiù.addEventListener('touchstart',(event) => {if(Fattibile){event.stopPropagation(); BottoneMuoviGiù.style.opacity = "1"; if(!DatiDiPosizione.InPausa){
+            }});
+    BottoneMuoviGiù.addEventListener('pointerdown',(event) => {event.stopPropagation(); BottoneMuoviGiù.style.opacity = "1"; if(!DatiDiPosizione.InPausa){
                 if(!DatiDiPosizione.Corri)
                 {
                     ArmaInCanna.classList.add('shake');
@@ -1331,10 +1330,10 @@ function Gioco(Protagonista,ShotgunEquipaggiato,AssaltoEquipaggiato,CecchinoEqui
                 {
                     DatiDiPosizione.Corri = false;
                     ArmaInCanna.classList.remove('shake');
-                }}});
-    BottoneMuoviSu.addEventListener('touchend',(event) => {event.preventDefault(); event.stopPropagation(); BottoneMuoviSu.style.opacity = "0.5"; DatiDiPosizione.Corri = false; ArmaInCanna.classList.remove('shake');});
-    BottoneMuoviGiù.addEventListener('touchend',(event) => {event.preventDefault(); event.stopPropagation(); BottoneMuoviGiù.style.opacity = "0.5"; DatiDiPosizione.Corri = false; ArmaInCanna.classList.remove('shake');});
-    BottoneSpara.addEventListener('touchend',(event) => {event.preventDefault(); event.stopPropagation(); BottoneSpara.style.opacity = "0.5";
+                }});
+    BottoneMuoviSu.addEventListener('pointerup',(event) => {event.stopPropagation(); BottoneMuoviSu.style.opacity = "0.5"; DatiDiPosizione.Corri = false; ArmaInCanna.classList.remove('shake');});
+    BottoneMuoviGiù.addEventListener('pointerup',(event) => {event.stopPropagation(); BottoneMuoviGiù.style.opacity = "0.5"; DatiDiPosizione.Corri = false; ArmaInCanna.classList.remove('shake');});
+    BottoneSpara.addEventListener('pointerup',(event) => {event.stopPropagation(); BottoneSpara.style.opacity = "0.5";
                     Colpo = false;
                     if(ArmaPresa.altorateo)
                     {
@@ -1345,7 +1344,7 @@ function Gioco(Protagonista,ShotgunEquipaggiato,AssaltoEquipaggiato,CecchinoEqui
                         }
                     }
                 });
-    document.addEventListener('click',(event) => {event.preventDefault(); event.stopPropagation(); if(!DatiDiPosizione.InPausa){PausaRiprendi(DatiDiPosizione,NemicoScelto)}});
+    document.addEventListener('pointerdown',(event) => {event.stopPropagation(); if(!DatiDiPosizione.InPausa){PausaRiprendi(DatiDiPosizione,NemicoScelto)}});
     Partita = setInterval(() => {
         if(Protagonista.vita == 0)
         {
