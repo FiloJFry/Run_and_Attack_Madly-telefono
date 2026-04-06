@@ -1353,6 +1353,9 @@ function Gioco(Protagonista,ShotgunEquipaggiato,AssaltoEquipaggiato,CecchinoEqui
                     DatiDiPosizione.Corri = false;
                     ArmaInCanna.classList.remove('shake');
                 }});
+    BottoneMuoviSu.addEventListener('click',(event) => {event.stopPropagation();});
+    BottoneMuoviGiù.addEventListener('click',(event) => {event.stopPropagation();});
+    BottoneSpara.addEventListener('click',(event) => {event.stopPropagation();});
     BottoneMuoviSu.addEventListener('touchend',(event) => {event.stopPropagation(); BottoneMuoviSu.style.opacity = "0.5"; DatiDiPosizione.Corri = false; ArmaInCanna.classList.remove('shake');});
     BottoneMuoviGiù.addEventListener('touchend',(event) => {event.stopPropagation(); BottoneMuoviGiù.style.opacity = "0.5"; DatiDiPosizione.Corri = false; ArmaInCanna.classList.remove('shake');});
     BottoneSpara.addEventListener('touchend',(event) => {event.stopPropagation(); BottoneSpara.style.opacity = "0.5";
