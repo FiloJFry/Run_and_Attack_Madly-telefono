@@ -42,7 +42,7 @@
     animation: vaiGiù 0.5s ease-in-out;
 }
 .shake{
-    animation: scuoti 1s infinite ease-in-out;
+    animation: scuoti 0.5s infinite ease-in-out;
 }
 .slideOutRight{
     animation: scattaDestra 0.4s ease-in-out;
