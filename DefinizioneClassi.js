@@ -67,10 +67,10 @@ class Nemico
         if(!DatiDiPosizione.InPausa)
         {
             DatiDiPosizione.AllAttacco = true;
-            Boss.setAttribute('src',`./Immagini/Immagini/Nemici/${this.nome}_attaccando.jpg`);
+            Boss.setAttribute('src',`./Immagini/Nemici/${this.nome}_attaccando.jpg`);
             FrasiNemico.textContent = `${this.Frasi[0]}`;
             AttaccoNemico.style.color = this.coloreAttacco;
-            setTimeout(() => {Boss.setAttribute('src',`./Immagini/Immagini/Nemici/${this.nome}.jpg`); FrasiNemico.textContent = "";},1000);
+            setTimeout(() => {Boss.setAttribute('src',`./Immagini/Nemici/${this.nome}.jpg`); FrasiNemico.textContent = "";},1000);
             this.Attacco(DatiDiPosizione);
         }
     }
@@ -241,11 +241,11 @@ class Arma
     {    
         if(this.munizioni > 0)
         { 
-            ArmaInCanna.setAttribute('src',`./Immagini/Immagini/Armi/${this.nome}_attaccando.jpg`);
+            ArmaInCanna.setAttribute('src',`./Immagini/Armi/${this.nome}_attaccando.jpg`);
             this.munizioni -= 1;
             PiuInfo.textContent = `${this.munizioni}|${this.inventario}`;
             RumoriArma.textContent = `${this.Rumori[0]}`; 
-            setTimeout(() => {ArmaInCanna.setAttribute('src',`./Immagini/Immagini/Armi/${this.nome}.jpg`); RumoriArma.textContent = "";},100);
+            setTimeout(() => {ArmaInCanna.setAttribute('src',`./Immagini/Armi/${this.nome}.jpg`); RumoriArma.textContent = "";},100);
         }
         else
         {   
@@ -270,7 +270,7 @@ class Arma
     Step(a,p)
     {
         ArmaInCanna.classList.add('slideOutDown');
-        setTimeout(() => {ArmaInCanna.setAttribute('src',`./Immagini/Immagini/${a}/${this.nome}${p}.jpg`); ArmaInCanna.classList.remove('slideOutDown'); ArmaInCanna.classList.add('slideInUp'); if(p != ""){RumoriArma.textContent = `${this.Rumori[p.split('a')[2]]}`;} else{RumoriArma.textContent = "";}},500);
+        setTimeout(() => {ArmaInCanna.setAttribute('src',`./Immagini/${a}/${this.nome}${p}.jpg`); ArmaInCanna.classList.remove('slideOutDown'); ArmaInCanna.classList.add('slideInUp'); if(p != ""){RumoriArma.textContent = `${this.Rumori[p.split('a')[2]]}`;} else{RumoriArma.textContent = "";}},500);
         setTimeout(() => {ArmaInCanna.classList.remove('slideInUp');
         if(p == "")
         {   
@@ -295,9 +295,9 @@ class Mischia extends Arma
     {
         if(this.munizioni == 1)
         {
-            ArmaInCanna.setAttribute('src',`./Immagini/Immagini/Armi/${this.nome}_attaccando.jpg`);
+            ArmaInCanna.setAttribute('src',`./Immagini/Armi/${this.nome}_attaccando.jpg`);
             this.munizioni = 0;
-            setTimeout(() => {ArmaInCanna.setAttribute('src',`./Immagini/Immagini/Armi/${this.nome}.jpg`);},100);
+            setTimeout(() => {ArmaInCanna.setAttribute('src',`./Immagini/Armi/${this.nome}.jpg`);},100);
         }
         else
         {
