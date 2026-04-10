@@ -1,4 +1,4 @@
-let DatiDiPosizione = new SaccoDiDati(0,100,100,100,false,false,false,false,false);
+let DatiDiPosizione = new SaccoDiDati(0,100,100,100,false,false,false,false,false,false,true);
 let RimaniQui = true;
 let stavaattaccando;
 let stavamuovendosi;
