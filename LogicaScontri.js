@@ -156,6 +156,7 @@ function Fine(Partita,DatiDiPosizione,MirID,Spara,vittoria,NemicoScelto)
 {
         clearInterval(Partita);
         DatiDiPosizione.InPausa = true;
+        document.querySelector('#Info2').style.color = "transparent";
         PiuInfo.style.color = "transparent";
         BarraMischia.style.backgroundColor = "transparent";
         document.querySelector('#PienBarraMischia').style.backgroundColor = "transparent";
@@ -165,12 +166,11 @@ function Fine(Partita,DatiDiPosizione,MirID,Spara,vittoria,NemicoScelto)
         }
         if(Spara != undefined)
         {
-            clearInterval(Spara);
+            clearInterval(Spara)
         }
         Mirino.style.color = "transparent";
         AttaccoNemico.style.color = "transparent";
-        setTimeout(() => {document.querySelectorAll(".Comandi").forEach(B => {B.style.opacity = "0";});
-        document.querySelectorAll(".CambioArmi").forEach(B => {B.style.opacity = "0";});},500);
+        setTimeout(() => {document.querySelectorAll('.Comandi').forEach(B => {B.style.opacity = "0";}); document.querySelectorAll('.CambioArmi').forEach(B => {B.style.opacity = "0";})},500);
         if(vittoria)
         {   
             document.querySelector('#SchermataPausa').style.color = "green";
@@ -196,7 +196,7 @@ function Fine(Partita,DatiDiPosizione,MirID,Spara,vittoria,NemicoScelto)
             <button type="button" id = "BottoneOpzioni" onclick="PannelloOpzioni.showModal();">Opzioni</button>
             <button type = "button" id = "Abbandona" onclick = "if(RimaniQui){RimaniQui = false;} PannelloConferma.showModal()">Gioca ancora</button>`;
             ArmaInCanna.classList.add('VaiGiù');
-            setTimeout(() =>{FrasiNemico.textContent = `${NemicoScelto.Frasi[1]}`},500);
+            setTimeout(() =>{FrasiNemico.textContent = `${NemicoScelto.Frasi[2]}`},500);
             setTimeout(() => {ArmaInCanna.classList.remove('VaiGiù'); ArmaInCanna.classList.add('TornaSu'); ArmaInCanna.src = "./Immagini/Animazioni/Animazione Sconfitta.jpg"},500);
             setTimeout(() => {ArmaInCanna.classList.remove('TornaSu')},1000);
             setTimeout(() => {PannelloPausa.showModal();},3000);
