@@ -35,6 +35,20 @@
         opacity: 1;
     }
 }
+@keyframes CaricaBarra
+{
+    from
+    {
+        width: 0vw;
+    }
+    to
+    {
+        width: 20vw;
+    }
+}
+.BarraInCarica{
+    animation: CaricaBarra 45s linear;
+}
 .TornaSu{
     animation: tornaSu 0.5s ease-in-out;
 }

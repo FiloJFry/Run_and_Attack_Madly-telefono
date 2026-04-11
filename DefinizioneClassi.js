@@ -62,7 +62,7 @@ class Nemico
     {
         return this._Frasi;
     }
-    AllAttacco(DatiDiPosizione)
+    AllAttacco(DatiDiPosizione,Protagonista)
     {   
         if(!DatiDiPosizione.InPausa)
         {
@@ -72,20 +72,21 @@ class Nemico
             AttaccoNemico.style.color = this.coloreAttacco;
             let t = 0;
             let dice = setInterval(() => {if(!DatiDiPosizione.InPausa){t += 10; if(t >= 1000){Boss.setAttribute('src',`./Immagini/Nemici/${this.nome}.jpg`); FrasiNemico.textContent = ""; clearInterval(dice)}}},10);
-            this.Attacco(DatiDiPosizione);
+            this.Attacco(DatiDiPosizione,Protagonista);
         }
     }
-    Attacco(DatiDiPosizione)
+    Attacco(DatiDiPosizione,Protagonista)
     {   
         setTimeout(() => {
         if(DatiDiPosizione.distanzaAG > 0 && !DatiDiPosizione.InPausa)
         {
             DatiDiPosizione.distanzaAG = DatiDiPosizione.distanzaAG - 1;
             AttaccoNemico.style.transform = `scale(${10/Math.max(DatiDiPosizione.distanzaAG,1)})`;
-            this.Attacco(DatiDiPosizione);
+            this.Attacco(DatiDiPosizione,Protagonista);
         }
         else
         {   
+            Colpito(DatiDiPosizione,Protagonista);
             DatiDiPosizione.AllAttacco = false;
             return;
         }},1000/this.velocità);
@@ -238,7 +239,7 @@ class Arma
     {
         return this._Rumori;
     }
-    Spara()
+    Spara(DatiDiPosizione,NemicoScelto)
     {    
         if(this.munizioni > 0)
         { 
@@ -246,6 +247,7 @@ class Arma
             this.munizioni -= 1;
             PiuInfo.textContent = `${this.munizioni}|${this.inventario}`;
             RumoriArma.textContent = `${this.Rumori[0]}`; 
+            Preso(this,DatiDiPosizione.distanza,NemicoScelto);
             setTimeout(() => {ArmaInCanna.setAttribute('src',`./Immagini/Armi/${this.nome}.jpg`); RumoriArma.textContent = "";},100);
         }
         else
@@ -311,12 +313,16 @@ class Arma
 }
 class Mischia extends Arma
 {   
-    Spara()
+    Spara(DatiDiPosizione,NemicoScelto)
     {
         if(this.munizioni == 1)
         {
             ArmaInCanna.setAttribute('src',`./Immagini/Armi/${this.nome}_attaccando.jpg`);
             this.munizioni = 0;
+            if(Preso(this,DatiDiPosizione.distanza,NemicoScelto))
+            {
+                Dotazione.forEach(A => {A.inventario = A.inventario + 3*A.maxmunizioni;});
+            }
             setTimeout(() => {ArmaInCanna.setAttribute('src',`./Immagini/Armi/${this.nome}.jpg`);},100);
         }
         else

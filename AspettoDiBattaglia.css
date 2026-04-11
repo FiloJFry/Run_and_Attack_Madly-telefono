@@ -262,30 +262,3 @@ h4{
     right: 7.5vw;
     bottom: 5vh;
 }
-@keyframes CaricaBarra
-{
-    from
-    {
-        width: 0vw;
-    }
-    to
-    {
-        width: 20vw;
-    }
-}
-.BarraInCarica{
-    animation: CaricaBarra 45s linear;
-}
-.slideOutDown{
-    animation-duration: 0.5s;
-}
-.slideInUp{
-    animation-duration: 0.5s;
-}
-.slideOutRight{
-    animation-duration: 0.4s;
-}
-.shake{
-    animation-duration: 2.5s;
-    animation-iteration-count: infinite;
-}
