@@ -1,7 +1,7 @@
-const Quadrupletta = new Arma("Quadrupletta",16000,10,1,4,3000,false,"[####]",["BAM","KSH","CRRLCK"]);
+const Quadrupletta = new Arma("Quadrupletta",24000,10,1,4,3000,false,"[####]",["BAM","KSH","CRRLCK"]);
 const DoppiaPistolaDaClown = new Arma("Doppia pistola da clown",13000,6,2,8,2000,false,"@ @",["Scherzetto!","crrt","f-flump"]);
 const SpargiSchegge = new Arma("Spargischegge",8500,20,5,20,1500,false,"|***|",["splsh!","fr-ln","fr-ln"]);
-const LanciaFiammeTriforcuto = new Arma("Lanciafiamme triforcuto",1500,16,20,80,1,true,"^ ^ ^",["FFFSH","","blblblbl..."]);
+const LanciafiammeTriforcuto = new Arma("Lanciafiamme triforcuto",6000,16,5,20,1,true,"^ ^ ^",["FFFSH","","blblblbl..."]);
 const DistributoreDiPalline = new Arma("Distributore di palline",200,125,45,180,25,true,"I<br/>==O==<br/>I",["Boing!","tk","CRT-CRT-CRT"]);
 const SparaOssa = new Arma("Sparaossa",120,132,80,320,35,true,"I<br/>--X--<br/>I",["tln","tsh!","frrlll!"]);
 const FriggitriceDAssalto = new Arma("Friggitrice da assalto",300,112,50,200,30,true,"I<br/>~~(#)~~<br/>I",["tsn","ffssh","zzz"]);
@@ -14,7 +14,7 @@ const SchiaffoTermico = new Mischia("Schiaffo termico",15000,5,1,0,45000,false,"
 const GelatoSciolto = new Mischia("Gelato sciolto",12000,6,1,0,45000,false,"##",["splch!"]);
 const BorsaTarocca = new Mischia("Borsa tarocca",10000,7,1,0,45000,false,"$$",["dsh!"]);
 const CinturaDragone = new Mischia("Cintura dragone",9000,10,1,0,45000,false,"[#]",["U-DSH"]);
-const Armi = [Quadrupletta,DoppiaPistolaDaClown,SpargiSchegge,LanciaFiammeTriforcuto,DistributoreDiPalline,SparaOssa,FriggitriceDAssalto,LanciaMiniRazzi,GeneratoreDaBattaglia,LanciaGranateDiPrecisione,ManoAPistola,CannoneDiCarroArmato];
+const Armi = [Quadrupletta,DoppiaPistolaDaClown,SpargiSchegge,LanciafiammeTriforcuto,DistributoreDiPalline,SparaOssa,FriggitriceDAssalto,LanciaMiniRazzi,GeneratoreDaBattaglia,LanciaGranateDiPrecisione,ManoAPistola,CannoneDiCarroArmato];
 const Mischie = [SchiaffoTermico,GelatoSciolto,BorsaTarocca,CinturaDragone];
 const MetalSkeletonCowBoy = new Nemico("Metal skeleton cowboy",0,0,"● ●","gray",["Non c'è spazio per tutt'e due in questo campo","Y-HAH!","Se solo fossi stato un pistolero più abile..."]);
 const IlRobotDelCartoneAnni80 = new Nemico("Il Robot del cartone anni 80",0,0,"<●>","red",["*spara un colpo energetico dall'occhio*","*ti osserva cadere a terra*","*non fa nulla*"]);
