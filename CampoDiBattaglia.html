@@ -57,8 +57,8 @@
                 <div class = "Riga"><button type = "button" id = "MostraISuoni"  onclick = "if(!MostraSuoni){MostraSuoni = true;window.localStorage.removeItem('MostraSuoni');BottoneSuoni.style.backgroundColor = 'green';BottoneSuoni.textContent = '√';}
                 else{MostraSuoni = false;window.localStorage.setItem('MostraSuoni',`${MostraSuoni}`);BottoneSuoni.style.backgroundColor = 'red';BottoneSuoni.textContent = 'x';}">√</button></div>
                 <div class = MiniCentratore>
-                <button type="button" id="Salva" onclick="Salva()">Salva</button>
-                <button type="button" id="Reset" onclick="Reset()">Ripristina predefiniti</button>
+                <button type="button" id="Salva" onclick="SalvaOra()">Salva</button>
+                <button type="button" id="Reset" onclick="ResetOra()">Ripristina predefiniti</button>
             </div>
             </div>
         </dialog>

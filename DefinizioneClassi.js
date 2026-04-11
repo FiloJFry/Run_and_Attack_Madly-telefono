@@ -361,10 +361,10 @@ class Personaggio
         PersonaggioGiocabile.classList.add('Schivata');
         DatiDiPosizione.Schivando = true;
         DatiDiPosizione.PuòSchivare = false;
-        PersonaggioGiocabile.addEventListener('animationend',(event) => {if(event.animationName == "scattaDestra"){PersonaggioGiocabile.classList.remove('Schivata');
+        PersonaggioGiocabile.addEventListener('animationend',() => {PersonaggioGiocabile.classList.remove('Schivata');
         DatiDiPosizione.Schivando = false;
         let sec = 0;
-        let riprenditi = setInterval(() => {if(!DatiDiPosizione.InPausa){sec += 10; if(sec >= 600){DatiDiPosizione.PuòSchivare = true; clearInterval(riprenditi);}}},10);}},{once: true,});
+        let riprenditi = setInterval(() => {if(!DatiDiPosizione.InPausa){sec += 10; if(sec >= 600){DatiDiPosizione.PuòSchivare = true; clearInterval(riprenditi);}}},10);},{once: true,});
     }
     Muovi(verso,DatiDiPosizione)
     {   

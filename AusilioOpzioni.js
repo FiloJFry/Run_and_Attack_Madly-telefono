@@ -25,3 +25,26 @@ function Reset()
     window.localStorage.removeItem("MostraSuoni");
     window.location.reload();
 }
+function AggiornaImpostazioni()
+{   
+    if(window.localStorage.getItem("MostraSuoni") != null)
+    {
+        RumoriArma.style.color = "transparent";
+    }
+    else
+    {
+        RumoriArma.style.color = "white";
+    }
+    AggiornaTasti();
+}
+function SalvaOra()
+{   
+    AggiornaImpostazioni();
+    PannelloOpzioni.close();
+}
+function ResetOra()
+{
+    window.localStorage.removeItem("MostraSuoni");
+    AggiornaImpostazioni();
+    PannelloOpzioni.close();
+}
