@@ -5,7 +5,6 @@ let stavamuovendosi;
 let Spara;
 let Partita;
 let MirID;
-let Dotazione = [ShotgunEquipaggiato,AssaltoEquipaggiato,CecchinoEquipaggiato];
 let Boss = document.querySelector('#Nemico');
 let ArmaInCanna = document.querySelector('#Arma');
 let PersonaggioGiocabile = document.querySelector('#PGiocabile');
@@ -57,7 +56,9 @@ function Pulisci(Spara,gap,risparo)
 }
 function Rifornisci()
 {
-    Dotazione.forEach(A => {A.inventario = A.inventario + 3*A.maxmunizioni;});
+    ShotgunEquipaggiato.inventario += 3*ShotgunEquipaggiato.maxmunizioni;
+    AssaltoEquipaggiato.inventario += 3*AssaltoEquipaggiato.maxmunizioni;
+    CecchinoEquipaggiato.inventario += 3*CecchinoEquipaggiato.maxmunizioni;
 }
 function CambioArma(ArmaPresa,Spara,gap,DatiDiPosizione)
 {
