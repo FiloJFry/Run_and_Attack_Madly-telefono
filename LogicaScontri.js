@@ -110,7 +110,7 @@ function Preso(ArmaPresa,NemicoScelto,distanza,muny)
 }
 function Colpito(Protagonista,DatiDiPosizione,EccoloCheArriva)
 {
-    if(AttaccoNemico.style.color == NemicoScelto.coloreAttacco && DatiDiPosizione.distanzaAG <= 0 && !DatiDiPosizione.Schivando)
+    if(!DatiDiPosizione.Schivando && !DatiDiPosizione.InPausa)
     {
         Protagonista.vita -= 1;
         hp.textContent = `HP: ${Protagonista.vita}`;
@@ -359,12 +359,7 @@ function Gioco(Protagonista,ShotgunEquipaggiato,AssaltoEquipaggiato,CecchinoEqui
                     {
                         MirID = setInterval(() => {AggiornaMirino(ArmaPresa,DatiDiPosizione.distanza); if(!DatiDiPosizione.Corri && !DatiDiPosizione.InMoto){clearInterval(MirID); MirID = undefined;}},10);
                     }
-                }}
-            else
-            {
-                DatiDiPosizione.Corri = false;
-                PersonaggioGiocabile.classList.remove('Scuoti');
-            }});
+                }}});
     BottoneMuoviGiù.addEventListener('touchstart',(event) => {event.stopPropagation(); if(!DatiDiPosizione.InPausa){BottoneMuoviGiù.style.opacity = "1";
                 if(!DatiDiPosizione.Corri)
                 {
@@ -375,12 +370,7 @@ function Gioco(Protagonista,ShotgunEquipaggiato,AssaltoEquipaggiato,CecchinoEqui
                     {
                         MirID = setInterval(() => {AggiornaMirino(ArmaPresa,DatiDiPosizione.distanza); if(!DatiDiPosizione.Corri && !DatiDiPosizione.InMoto){clearInterval(MirID); MirID = undefined;}},10);
                     }
-                }}
-                else
-                {
-                    DatiDiPosizione.Corri = false;
-                    PersonaggioGiocabile.classList.remove('Scuoti');
-                }});
+                }}});
     BottoneMuoviSu.addEventListener('touchend',(event) => {event.stopPropagation(); BottoneMuoviSu.style.opacity = "0.5"; DatiDiPosizione.Corri = false; PersonaggioGiocabile.classList.remove('Scuoti');});
     BottoneMuoviGiù.addEventListener('touchend',(event) => {event.stopPropagation(); BottoneMuoviGiù.style.opacity = "0.5"; DatiDiPosizione.Corri = false; PersonaggioGiocabile.classList.remove('Scuoti');});
     BottoneSpara.addEventListener('touchend',(event) => {event.stopPropagation(); BottoneSpara.style.opacity = "0.5";
