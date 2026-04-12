@@ -298,7 +298,7 @@ function Gioco(Protagonista,ShotgunEquipaggiato,AssaltoEquipaggiato,CecchinoEqui
             {   
                 Spara = setInterval(() => {ArmaPresa.Spara(DatiDiPosizione,NemicoScelto);},ArmaPresa.rateo + 100);
             }
-            else
+            else if(risparo)
             {   
                 risparo = false;
                 let cont = 0;
