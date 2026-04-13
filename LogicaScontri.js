@@ -54,7 +54,10 @@ function Pulisci(Spara,gap,risparo)
         clearInterval(gap);
         gap = undefined;
     }
-    risparo = true;
+    if(!risparo)
+    {
+       risparo = true;
+    }
 }
 function Rifornisci()
 {
@@ -235,7 +238,6 @@ function Gioco(Protagonista,ShotgunEquipaggiato,AssaltoEquipaggiato,CecchinoEqui
             {
             Pulisci(Spara,gap,risparo);
             Colpo = CambioArma(MischiaEquipaggiata,Spara,gap,DatiDiPosizione);
-            risparo = true;
             ArmaPresa = MischiaEquipaggiata;
             if(MirID == undefined)
                 {
@@ -247,7 +249,6 @@ function Gioco(Protagonista,ShotgunEquipaggiato,AssaltoEquipaggiato,CecchinoEqui
                 {
             Pulisci(Spara,gap,risparo);
             Colpo = CambioArma(ShotgunEquipaggiato,Spara,gap,DatiDiPosizione);
-            risparo = true;
             ArmaPresa = ShotgunEquipaggiato;
             if(MirID == undefined)
                 {
@@ -259,7 +260,6 @@ function Gioco(Protagonista,ShotgunEquipaggiato,AssaltoEquipaggiato,CecchinoEqui
                 {
             Pulisci(Spara,gap,risparo);
             Colpo = CambioArma(AssaltoEquipaggiato,Spara,gap,DatiDiPosizione);
-            risparo = true;
             ArmaPresa = AssaltoEquipaggiato;
             if(MirID == undefined)
                 {
@@ -271,7 +271,6 @@ function Gioco(Protagonista,ShotgunEquipaggiato,AssaltoEquipaggiato,CecchinoEqui
                 {
             Pulisci(Spara,gap,risparo);
             Colpo = CambioArma(CecchinoEquipaggiato,Spara,gap,DatiDiPosizione);
-            risparo = true;
             ArmaPresa = CecchinoEquipaggiato;
             if(MirID == undefined)
                 {
@@ -302,7 +301,7 @@ function Gioco(Protagonista,ShotgunEquipaggiato,AssaltoEquipaggiato,CecchinoEqui
             {   
                 risparo = false;
                 let cont = 0;
-                gap = setInterval(() => {if(!DatiDiPosizione.InPausa){cont += 50; if(cont >= ArmaPresa.rateo + 100){risparo = true; clearInterval(gap);}}},50);
+                gap = setInterval(() => {if(!DatiDiPosizione.InPausa){cont += 100; if(cont >= ArmaPresa.rateo + 100){risparo = true; clearInterval(gap);}}},100);
             }
         }}
         else
