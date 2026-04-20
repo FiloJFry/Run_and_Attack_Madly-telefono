@@ -7,7 +7,7 @@ let Partita;
 let Colpo = false;
 let gap;
 let risparo = true;
-let ArmaPresa = AssaltoEquipaggiato;
+let ArmaPresa;
 let Boss = document.querySelector('#Nemico');
 let ArmaInCanna = document.querySelector('#Arma');
 let PersonaggioGiocabile = document.querySelector('#PGiocabile');
@@ -195,7 +195,8 @@ function Fine(Partita,DatiDiPosizione,vittoria,NemicoScelto)
         setTimeout(() => {PannelloPausa.showModal();},3000);
 }
 function Gioco(Protagonista,ShotgunEquipaggiato,AssaltoEquipaggiato,CecchinoEquipaggiato,MischiaEquipaggiata,NemicoScelto,DatiDiPosizione)
-{
+{   
+    ArmaPresa = AssaltoEquipaggiato;
     Boss.setAttribute('src',`./Immagini/Nemici/${NemicoScelto.nome}.jpg`);
     ArmaInCanna.setAttribute('src',`./Immagini/Armi/${ArmaPresa.nome}.jpg`);
     Mirino.innerHTML = ArmaPresa.mirino;
