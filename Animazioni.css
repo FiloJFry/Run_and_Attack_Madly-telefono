@@ -94,7 +94,7 @@
     }
 }
 .LampeggiaHP{
-    animation: Lampeggianti 3.2s ease-in-out;
+    animation: Lampeggianti 2.5s ease-in-out;
 }
 .BarraInCarica{
     animation: CaricaBarra 45s linear;
