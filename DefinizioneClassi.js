@@ -71,7 +71,7 @@ class Nemico
             FrasiNemico.textContent = `${this.Frasi[0]}`;
             AttaccoNemico.style.color = this.coloreAttacco;
             let t = 0;
-            let dice = setInterval(() => {if(!InPausa){t += 10; if(t >= 1000){Boss.setAttribute('src',`./Immagini/Nemici/${this.nome}.jpg`); FrasiNemico.textContent = ""; clearInterval(dice)}}},10);
+            let dice = setInterval(() => {if(!InPausa){t += 100; if(t >= 1000){Boss.setAttribute('src',`./Immagini/Nemici/${this.nome}.jpg`); FrasiNemico.textContent = ""; clearInterval(dice)}}},100);
             this.Attacco(Protagonista);
         }
     }
@@ -94,7 +94,7 @@ class Nemico
     Moto()
     {   
         let direzione = Math.random() < 0.5;
-        let spazio = Math.random()*200;
+        let spazio = Math.floor(Math.random()*200);
         InMoto = true;
         this.AggiornaPosizione(direzione,spazio);
     }
@@ -127,6 +127,13 @@ class Nemico
                 distanza = distanza - 1;
             }
         }
+        if((direzione && posA == 0) || (!direzione && posA == 200))
+        {   
+            InMoto = false;
+            return;
+        }
+        else
+        {
         spazio -= 1;
         Boss.style.transform = `scale(${10/Math.max(distanza,10)})`;      
         if(AttaccoNemico.style.color == "transparent")
@@ -136,6 +143,7 @@ class Nemico
         }
         AggiornaMirino(ArmaPresa,distanza);
         this.AggiornaPosizione(direzione,spazio);
+        }
         }
         else
         {
@@ -400,7 +408,7 @@ class Personaggio
         PersonaggioGiocabile.addEventListener('animationend',() => {PersonaggioGiocabile.classList.remove('Schivata');
         Schivando = false;
         let sec = 0;
-        let riprenditi = setInterval(() => {if(!InPausa){sec += 10; if(sec >= 600){PuòSchivare = true; clearInterval(riprenditi);}}},10);},{once: true,});
+        let riprenditi = setInterval(() => {if(!InPausa){sec += 100; if(sec >= 600){PuòSchivare = true; clearInterval(riprenditi);}}},100);},{once: true,});
     }
     Muovi(verso)
     {   
@@ -434,6 +442,14 @@ class Personaggio
                 distanzaAG = distanzaAG - 1;
             }
         }
+        if((verso && posG == 200) || (!verso && posG == 0))
+        {
+            PersonaggioGiocabile.classList.remove('Scuoti');
+            Corri = false;
+            return;
+        }
+        else
+        {
         Boss.style.transform = `scale(${10/Math.max(distanza,10)})`;
         AttaccoNemico.style.transform = `scale(${10/Math.max(distanzaAG,1)})`;
         Segnaposto1.style.transform = `scale(${10/Math.max(posG,10)})`;
@@ -441,10 +457,11 @@ class Personaggio
         AggiornaMirino(ArmaPresa,distanza);
         this.Muovi(verso);
     }
+    }
     else
     {   
         PersonaggioGiocabile.classList.remove('Scuoti');
-        Corri = false;
+        Corri = false; 
         return;
     }},1000/this.velocità);
 }
