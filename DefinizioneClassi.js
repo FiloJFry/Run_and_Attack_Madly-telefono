@@ -412,7 +412,7 @@ class Personaggio
     }
     Muovi(verso)
     {   
-        setTimeout(() => {if(Corri && posG <= 200 && posG >= 0 && !InPausa)
+        setTimeout(() => {if(Corri && !InPausa)
         {
         if(verso && posG < 200)
         {
